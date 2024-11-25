@@ -53,4 +53,10 @@
         </x-slot>
     </x-sidebar.link>
 
+    <x-sidebar.link title="Tamu Undangan" href="{{ url('admin/guests') }}" :isActive="url()->current() === url('/admin/guests')">
+        <x-slot name="icon">
+            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+
 </x-perfect-scrollbar>
