@@ -4,7 +4,9 @@ import Alpine from "alpinejs";
 import collapse from "@alpinejs/collapse";
 import PerfectScrollbar from "perfect-scrollbar";
 import jQuery from "jquery";
+import swal from "sweetalert2";
 
+window.Swal = swal;
 window.$ = jQuery;
 
 window.PerfectScrollbar = PerfectScrollbar;

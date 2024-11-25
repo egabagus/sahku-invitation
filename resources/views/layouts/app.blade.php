@@ -58,6 +58,8 @@
             </div>
         </div>
     </div>
+    @include('components.form.loading')
+    @include('components.form.handle-error')
     <script src="{{ asset('js/flowbite.min.js') }}"></script>
 </body>
 

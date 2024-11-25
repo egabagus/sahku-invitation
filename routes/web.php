@@ -32,8 +32,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/brides', [BridesController::class, 'index']);
+        Route::post('/brides', [BridesController::class, 'store']);
 
         Route::get('/events', [EventsController::class, 'index']);
+        Route::post('/events', [EventsController::class, 'store']);
 
         Route::get('/guests', [GuestsController::class, 'index']);
         Route::get('/guests/add', [GuestsController::class, 'add']);
