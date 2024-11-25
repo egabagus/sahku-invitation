@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Events extends Model
+class Bride extends Model
 {
-    use HasFactory, SoftDeletes;
-    protected $table = "events";
+    use HasFactory;
+    protected $table = "brides";
     public $timestamps = false;
     protected $guarded = [];
 }
