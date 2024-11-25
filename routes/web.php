@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BridesController;
+use App\Http\Controllers\EventsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/brides', [BridesController::class, 'index']);
+
+        Route::get('/events', [EventsController::class, 'index']);
     });
 });
 
