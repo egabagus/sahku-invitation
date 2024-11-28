@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/guests', [GuestsController::class, 'index']);
         Route::get('/guests/add', [GuestsController::class, 'add']);
+        Route::post('/guests', [GuestsController::class, 'store']);
+        Route::get('/guests/data', [GuestsController::class, 'data']);
     });
 });
 

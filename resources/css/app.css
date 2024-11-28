@@ -7,8 +7,98 @@
 @import '@fortawesome/fontawesome-free/css/regular.css';
 @import '@fortawesome/fontawesome-free/css/solid.css';
 @import '@fortawesome/fontawesome-free/css/brands.css';
+/* @import "datatables.net"; */
+/* @import "datatables.net-bs5"; */
+/* @import "datatables.net-dt/css/dataTables.dataTables.css"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css'); */
 
 .dark .ps__rail-y,
 .dark .ps__rail-x {
     background-color: transparent !important;
+}
+
+.dt-search, .dt-paging{
+    text-align: right !important;
+}
+
+.dt-info{
+    font-size: 8pt;
+}
+
+/* Modal styling */
+/* Modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  opacity: 0; /* Start with invisible */
+  transition: opacity 0.3s ease; /* Smooth fade effect */
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Show modal with fade-in */
+.modal.show {
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Allow interaction */
+  display: block; /* Show element */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-confirm {
+  background-color: #28a745;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
 }

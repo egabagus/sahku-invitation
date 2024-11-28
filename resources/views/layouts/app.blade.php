@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+    {{-- <link href="https://datatables.net/legacy/v1/media/css/dataTables.tailwindcss.css" rel="stylesheet" /> --}}
 
     <!-- Styles -->
     <style>
@@ -22,6 +23,11 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https:////cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    {{-- <script src="https://cdn.tailwindcss.com/3.4.15"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.tailwindcss.js"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -58,6 +64,13 @@
             </div>
         </div>
     </div>
+    {{-- <script src="https:////cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
+
+    {{-- <script src="{{ asset('build/assets/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('build/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('build/assets/jquery-easing/jquery.easing.min.js') }}"></script> --}}
     @include('components.form.loading')
     @include('components.form.handle-error')
     <script src="{{ asset('js/flowbite.min.js') }}"></script>

@@ -4,10 +4,14 @@ import Alpine from "alpinejs";
 import collapse from "@alpinejs/collapse";
 import PerfectScrollbar from "perfect-scrollbar";
 import jQuery from "jquery";
+import "flowbite";
 import swal from "sweetalert2";
+import "datatables.net";
+// import "datatables.net-bs5";
+import "datatables.net-dt";
 
 window.Swal = swal;
-window.$ = jQuery;
+// window.$ = jQuery;
 
 window.PerfectScrollbar = PerfectScrollbar;
 

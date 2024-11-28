@@ -33,21 +33,21 @@
         }
     }
 
-    .hidden {
+    .myhidden {
         display: none;
     }
 </style>
 
-<div id="loader-container" class="loader-container hidden">
+<div id="loader-container" class="loader-container myhidden">
     <div class="loader"></div><br />
 </div>
 
 <script>
     function showLoading() {
-        $('#loader-container').removeClass('hidden').show();
+        $('#loader-container').removeClass('myhidden').show();
     }
 
     function hideLoading() {
-        $('#loader-container').hide().addClass('hidden');
+        $('#loader-container').hide().addClass('myhidden');
     }
 </script>
