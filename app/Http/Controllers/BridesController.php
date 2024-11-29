@@ -7,6 +7,7 @@ use App\Models\Bride;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Throwable;
 
 class BridesController extends Controller
@@ -26,6 +27,7 @@ class BridesController extends Controller
             $users = Auth::user()->id;
 
             $brides = Bride::where('user_id', $users)->first();
+            // dd($brides);
             if ($brides) {
                 $brides->men_name        = $request->men_name;
                 $brides->men_nickname    = $request->men_nickname;
@@ -33,6 +35,19 @@ class BridesController extends Controller
                 $brides->women_name      = $request->women_name;
                 $brides->women_nickname  = $request->women_nickname;
                 $brides->women_desc      = $request->women_desc;
+
+                if ($brides->men_photo && Storage::exists($brides->men_photo)) {
+                    Storage::delete($brides->men_photo);
+                }
+                if ($brides->women_photo && Storage::exists($brides->women_photo)) {
+                    Storage::delete($brides->women_photo);
+                }
+                // dd($brides->men_photo);
+
+                $men_path                = $request->file('men_photo')->store('men_photo', 'public');
+                $brides->men_photo       = $men_path;
+                $women_path              = $request->file('women_photo')->store('women_photo', 'public');
+                $brides->women_photo     = $women_path;
                 $brides->save();
             } else {
                 $bride = new Bride();
@@ -43,6 +58,10 @@ class BridesController extends Controller
                 $bride->women_name      = $request->women_name;
                 $bride->women_nickname  = $request->women_nickname;
                 $bride->women_desc      = $request->women_desc;
+                $men_path                = $request->file('men_photo')->store('men_photo', 'public');
+                $brides->men_photo       = $men_path;
+                $women_path              = $request->file('women_photo')->store('women_photo', 'public');
+                $brides->women_photo     = $women_path;
                 $bride->save();
             }
 

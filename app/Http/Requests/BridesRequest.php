@@ -28,6 +28,8 @@ class BridesRequest extends FormRequest
             'women_name'          => 'required',
             'women_nickname'          => 'required',
             'women_desc'          => 'required',
+            'men_photo'     => ['required', 'mimes:jpg,png', 'max:512'],
+            'women_photo'     => ['required', 'mimes:jpg,png', 'max:512']
         ];
     }
 
