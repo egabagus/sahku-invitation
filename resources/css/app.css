@@ -59,9 +59,7 @@
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 60%;
   border-radius: 8px;
-  text-align: center;
   position: relative;
 }
 
@@ -101,4 +99,9 @@
 
 .btn-confirm:hover {
   background-color: #218838;
+}
+
+.border-header{
+  padding-top: 15px;
+  margin-top: 15px;
 }

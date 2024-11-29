@@ -23,6 +23,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https:////cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
     {{-- <script src="https://cdn.tailwindcss.com/3.4.15"></script> --}}

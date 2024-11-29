@@ -69,13 +69,66 @@
 
     <!-- Modal -->
     <div id="modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content w-1/2">
             <div class="modal-header">
-                <h1>Update Tamu Undangan</h1>
+                <h1 class="text-xl ">Update Tamu Undangan</h1>
                 <span id="closeModal" class="close">&times;</span>
+                <hr class="border-header">
             </div>
-            <p>This is a simple modal with fade effect.</p>
-            <button id="confirmButton" class="btn btn-confirm">Confirm</button>
+            <div class="modal-body">
+                <form id="updateForm">
+                    @csrf
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="mb-5">
+                                <input type="hidden" name="id" id="idGuest">
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preposisi</label>
+                                <select id="preposition" name="preposition"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Pilih Preposisi</option>
+                                    <option value="Bp.">Bp.</option>
+                                    <option value="Ibu">Ibu</option>
+                                    <option value="Sdr/i">Sdr/i</option>
+                                    <option value="Keluarga">Keluarga</option>
+                                </select>
+                            </div>
+                            <div class="mb-5">
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Event</label>
+                                <select name="event" id="event"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Pilih Events</option>
+                                    <option value="Akad">Akad</option>
+                                    <option value="Resepsi">Resepsi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                                    Lengkap</label>
+                                <input type="text" name="name" id="name"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Nama Lengkap" required />
+                            </div>
+                            <div class="mb-5">
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
+                                    Handphone</label>
+                                <input type="text" name="phone" id="phone"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Handphone" required />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <hr class="border-header">
+                <x-button variant="success" type="button" onclick="updateGuest()">Simpan</x-button>
+            </div>
         </div>
     </div>
     <script>
@@ -150,12 +203,11 @@
             });
         }
 
-        function modalUpdate(id, prep, name, phone) {
+        function modalUpdate(id, prep, name, event, phone) {
             // Get modal elements
             const modal = document.getElementById('modal');
             const openModalButton = document.getElementById('openModal');
             const closeModalButton = document.getElementById('closeModal');
-            const confirmButton = document.getElementById('confirmButton');
 
             // Open modal with fade-in
             modal.style.display = 'block'; // Ensure it's visible
@@ -181,14 +233,49 @@
                 }
             });
 
-            // Confirm button functionality
-            confirmButton.addEventListener('click', () => {
-                alert('Confirmed!');
-                modal.classList.remove('show'); // Start fade-out
-                setTimeout(() => {
-                    modal.style.display = 'none'; // Hide after fade-out completes
-                }, 300);
-            });
+            $('#idGuest').val(id)
+            $('#preposition').val(prep).change()
+            $('#name').val(name)
+            $('#phone').val(phone)
+            $('#event').val(event).change()
+        }
+
+        function updateGuest() {
+            var form = document.getElementById('updateForm')
+            var formData = new FormData(form)
+            var id = $('#idGuest').val()
+
+            $.ajax({
+                url: `{{ url('admin/guests') }}/${id}`,
+                data: formData,
+                method: 'POST',
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function(xhr) {
+                    // Menambahkan CSRF token ke header
+                    showLoading();
+                },
+                success: (data) => {
+                    Swal.fire({
+                        title: "Berhasil!",
+                        type: "success",
+                        icon: "success",
+                    }).then(function() {
+                        location.reload()
+                    })
+                },
+                error: function(error) {
+                    hideLoading();
+                    handleErrorAjax(error)
+                },
+                complete: function() {
+                    hideLoading();
+                },
+            })
         }
     </script>
 </x-app-layout>

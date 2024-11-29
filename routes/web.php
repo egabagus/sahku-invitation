@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/guests', [GuestsController::class, 'index']);
         Route::get('/guests/add', [GuestsController::class, 'add']);
         Route::post('/guests', [GuestsController::class, 'store']);
+        Route::post('/guests/{id}', [GuestsController::class, 'update']);
         Route::get('/guests/data', [GuestsController::class, 'data']);
 
         Route::get('/gallery', [GalleryController::class, 'index']);

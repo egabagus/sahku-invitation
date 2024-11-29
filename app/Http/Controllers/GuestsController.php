@@ -68,4 +68,29 @@ class GuestsController extends Controller
             ], 500);
         }
     }
+
+    public function update($id, Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $guest = Guest::find($id);
+            // dd($request->name);
+            $guest->preposition     = $request->preposition;
+            $guest->name     = $request->name;
+            $guest->event     = $request->event;
+            $guest->phone     = $request->phone;
+            $guest->save();
+
+            DB::commit();
+            return response()->json([
+                'message' => 'Berhasil'
+            ]);
+        } catch (Throwable $th) {
+            DB::rollBack();
+            return response()->json([
+                'error' => $th->getMessage()
+            ], 500);
+        }
+    }
 }
