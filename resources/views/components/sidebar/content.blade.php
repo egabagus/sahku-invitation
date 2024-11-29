@@ -59,4 +59,10 @@
         </x-slot>
     </x-sidebar.link>
 
+    <x-sidebar.link title="Galeri Foto" href="{{ url('admin/gallery') }}" :isActive="url()->current() === url('/admin/gallery')">
+        <x-slot name="icon">
+            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+        </x-slot>
+    </x-sidebar.link>
+
 </x-perfect-scrollbar>

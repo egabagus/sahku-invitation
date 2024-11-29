@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BridesController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GuestsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/guests/add', [GuestsController::class, 'add']);
         Route::post('/guests', [GuestsController::class, 'store']);
         Route::get('/guests/data', [GuestsController::class, 'data']);
+
+        Route::get('/gallery', [GalleryController::class, 'index']);
+        Route::post('/gallery/cover', [GalleryController::class, 'coverStore']);
+        Route::post('/gallery/photos', [GalleryController::class, 'photoStore']);
+        Route::delete('/gallery/photos/{id}', [GalleryController::class, 'photoDelete']);
     });
 });
 
