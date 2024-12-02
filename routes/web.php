@@ -4,6 +4,7 @@ use App\Http\Controllers\BridesController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GuestsController;
+use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -51,6 +52,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/gallery/photos/{id}', [GalleryController::class, 'photoDelete']);
     });
 });
+
+Route::get('/{bride}/{guest}', [InvitationController::class, 'index']);
 
 // useless routes
 // Just to demo sidebar dropdown links active states.
