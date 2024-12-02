@@ -4,7 +4,8 @@
             <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Tamu Undangan') }}
             </h2>
-            <x-button target="_blank" href="{{ url('/admin/guests/add') }}" class="justify-center max-w-xs gap-2 ">
+            <x-button target="_blank" href="{{ url('/admin/dashboard/guests/add') }}"
+                class="justify-center max-w-xs gap-2 ">
                 <span>Tambah Data</span>
             </x-button>
         </div>
@@ -148,7 +149,7 @@
                 serverSide: true,
                 autoWidth: false,
                 ajax: {
-                    url: "{{ url('admin/guests/data') }}",
+                    url: "{{ url('admin/dashboard/guests/data') }}",
                     beforeSend: function() {
                         showLoading();
                     },
@@ -246,7 +247,7 @@
             var id = $('#idGuest').val()
 
             $.ajax({
-                url: `{{ url('admin/guests') }}/${id}`,
+                url: `{{ url('admin/dashboard/guests') }}/${id}`,
                 data: formData,
                 method: 'POST',
                 processData: false,

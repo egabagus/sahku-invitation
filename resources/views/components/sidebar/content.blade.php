@@ -40,26 +40,26 @@
     @endphp
 
     {{-- @foreach ($links as $index => $link) --}}
-    <x-sidebar.link title="Data Mempelai" href="{{ url('admin/brides') }}" :isActive="url()->current() === url('/admin/brides')">
+    <x-sidebar.link title="Data Mempelai" href="{{ url('admin/dashboard/brides') }}" :isActive="url()->current() === url('/admin/dashboard/brides')">
         <x-slot name="icon">
             <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
     {{-- @endforeach --}}
 
-    <x-sidebar.link title="Data Event" href="{{ url('admin/events') }}" :isActive="url()->current() === url('/admin/events')">
+    <x-sidebar.link title="Data Event" href="{{ url('admin/dashboard/events') }}" :isActive="url()->current() === url('/admin/dashboard/events')">
         <x-slot name="icon">
             <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 
-    <x-sidebar.link title="Tamu Undangan" href="{{ url('admin/guests') }}" :isActive="url()->current() === url('/admin/guests')">
+    <x-sidebar.link title="Tamu Undangan" href="{{ url('admin/dashboard/guests') }}" :isActive="url()->current() === url('/admin/dashboard/guests')">
         <x-slot name="icon">
             <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
 
-    <x-sidebar.link title="Galeri Foto" href="{{ url('admin/gallery') }}" :isActive="url()->current() === url('/admin/gallery')">
+    <x-sidebar.link title="Galeri Foto" href="{{ url('admin/dashboard/gallery') }}" :isActive="url()->current() === url('/admin/dashboard/gallery')">
         <x-slot name="icon">
             <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>

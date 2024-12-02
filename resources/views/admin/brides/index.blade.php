@@ -120,7 +120,7 @@
             var formData = new FormData(form)
 
             $.ajax({
-                url: `{{ url('admin/brides') }}`,
+                url: `{{ url('admin/dashboard/brides') }}`,
                 data: formData,
                 method: 'POST',
                 processData: false,

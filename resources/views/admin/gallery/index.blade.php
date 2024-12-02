@@ -87,7 +87,7 @@
             var formData = new FormData(form)
 
             $.ajax({
-                url: `{{ url('admin/gallery/cover') }}`,
+                url: `{{ url('admin/dashboard/gallery/cover') }}`,
                 data: formData,
                 method: 'POST',
                 processData: false,
@@ -120,7 +120,7 @@
             var formData = new FormData(form)
 
             $.ajax({
-                url: `{{ url('admin/gallery/photos') }}`,
+                url: `{{ url('admin/dashboard/gallery/photos') }}`,
                 data: formData,
                 method: 'POST',
                 processData: false,
@@ -151,7 +151,7 @@
         function deletePhotos(id) {
             // console.log(id)
             $.ajax({
-                url: `{{ url('admin/gallery/photos') }}/${id}`,
+                url: `{{ url('admin/dashboard/gallery/photos') }}/${id}`,
                 method: 'DELETE',
                 processData: false,
                 contentType: false,

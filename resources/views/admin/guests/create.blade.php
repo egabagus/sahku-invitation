@@ -98,7 +98,7 @@
             var formData = new FormData(form)
 
             $.ajax({
-                url: `{{ url('admin/guests') }}`,
+                url: `{{ url('admin/dashboard/guests') }}`,
                 data: formData,
                 method: 'POST',
                 processData: false,
